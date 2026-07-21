@@ -1,27 +1,31 @@
 ---
 version: alpha
-name: Quiet Utility
-description: A calm, neutral, product-agnostic foundation for Rails applications.
+name: Mulberry & Ink
+description: A distinctive, composed, product-agnostic foundation for Rails applications.
 colors:
-  primary: "#2563EB"
-  primary-hover: "#1D4ED8"
+  primary: "#8A2D52"
+  primary-hover: "#6C2140"
   on-primary: "#FFFFFF"
-  canvas: "#F8FAFC"
+  primary-dark: "#D9719B"
+  primary-hover-dark: "#EB8DB5"
+  on-primary-dark: "#211A1E"
+  canvas: "#FAF9FA"
   surface: "#FFFFFF"
-  surface-subtle: "#F1F5F9"
-  text: "#0F172A"
-  text-muted: "#475569"
-  border: "#CBD5E1"
-  focus: "#2563EB"
-  danger: "#DC2626"
-  success: "#15803D"
-  warning: "#B45309"
-  canvas-dark: "#020617"
-  surface-dark: "#0F172A"
-  surface-subtle-dark: "#1E293B"
-  text-dark: "#F8FAFC"
-  text-muted-dark: "#CBD5E1"
-  border-dark: "#334155"
+  surface-subtle: "#F5F2F4"
+  text: "#211A1E"
+  text-muted: "#5E5359"
+  border: "#D8D0D4"
+  focus: "#A63D68"
+  focus-dark: "#D9719B"
+  danger: "#B42318"
+  success: "#19703D"
+  warning: "#8A5A00"
+  canvas-dark: "#120E10"
+  surface-dark: "#1D171A"
+  surface-subtle-dark: "#2A2226"
+  text-dark: "#F9F5F7"
+  text-muted-dark: "#D0C6CB"
+  border-dark: "#493C42"
 typography:
   headline-lg:
     fontFamily: system-ui
@@ -116,6 +120,9 @@ components:
   focus-ring:
     backgroundColor: "{colors.focus}"
     rounded: "{rounded.sm}"
+  focus-ring-dark:
+    backgroundColor: "{colors.focus-dark}"
+    rounded: "{rounded.sm}"
   status-danger:
     textColor: "{colors.danger}"
     typography: "{typography.label-sm}"
@@ -133,6 +140,14 @@ components:
     padding: 12px
   button-primary-hover:
     backgroundColor: "{colors.primary-hover}"
+  button-primary-dark:
+    backgroundColor: "{colors.primary-dark}"
+    textColor: "{colors.on-primary-dark}"
+    typography: "{typography.label-md}"
+    rounded: "{rounded.md}"
+    padding: 12px
+  button-primary-hover-dark:
+    backgroundColor: "{colors.primary-hover-dark}"
   input:
     backgroundColor: "{colors.surface}"
     textColor: "{colors.text}"
@@ -146,15 +161,15 @@ components:
     width: 32rem
 ---
 
-# Quiet Utility
+# Mulberry & Ink
 
 ## Overview
 
-Quiet Utility is a restrained, accessible starting point rather than a finished brand. It should feel calm, capable, and easy to adapt. Interfaces use moderate density, a clear hierarchy, cool neutral surfaces, and one action blue. Product-specific personality belongs in intentional changes to this document, not one-off overrides.
+Mulberry & Ink is a distinctive, accessible starting point rather than a finished brand. It should feel composed, capable, and easy to adapt. Interfaces use moderate density, clear hierarchy, ink-neutral surfaces, and mulberry for intentional emphasis. Product-specific personality belongs in intentional changes to this document, not one-off overrides.
 
 ## Colors
 
-Use cool slate neutrals for structure and reserve primary blue for links, focus, selection, and the most important action in a region. Semantic danger, success, and warning colors communicate state; they are not decoration. Light and dark surfaces have explicit tokens so both modes retain strong contrast.
+Use ink neutrals for structure and reserve mulberry for links, focus, selection, and the most important action in a region. The lighter dark-mode mulberry preserves contrast without making light-mode controls overly bright. Danger uses crimson, success uses forest green, and warning uses ochre so status colors remain distinct from the primary action color. Light and dark surfaces have explicit tokens so both modes retain strong contrast.
 
 ## Typography
 
@@ -180,7 +195,7 @@ Web Awesome owns the document reset and base element styles. Tailwind imports it
 
 The component catalogue uses concise examples that demonstrate each primitive's core behavior without duplicating upstream documentation. Full-page primitives are isolated in framed preview routes so responsive drawers and viewport behavior remain authentic without escaping into the catalogue page. API parity comes from using the upstream Web Awesome element directly, not from displaying every option at once.
 
-- Primary buttons use the action blue and white text; hover darkens without changing layout.
+- Primary buttons use mulberry and high-contrast text; hover changes tone without changing layout.
 - Inputs are at least 44px tall, with visible labels, muted help text, and a high-contrast focus ring.
 - Dialogs are focused tasks, not general page containers. They own their accessible label, focus trap, Escape behavior, and restoration of focus.
 - Navbars use familiar brand, link, and action regions. On narrow screens, links remain visible and horizontally scrollable rather than hiding essential navigation behind custom JavaScript.
@@ -191,7 +206,7 @@ The component catalogue uses concise examples that demonstrate each primitive's 
 
 - Do update this file first when a design decision should apply across the product.
 - Do maintain WCAG AA contrast and visible keyboard focus.
-- Do use primary blue sparingly to preserve action hierarchy.
+- Do use mulberry sparingly to preserve action hierarchy.
 - Do use Tailwind utilities built from exported tokens for application composition.
 - Don't edit generated theme CSS by hand.
 - Don't recreate Web Awesome interaction behavior in Stimulus.

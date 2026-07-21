@@ -14,7 +14,7 @@ yarn design:build
 yarn design:check
 ```
 
-`design:lint` validates `DESIGN.md` against Google's alpha format. `design:build` exports the tokens to Tailwind v4 CSS and replaces the generated file atomically. `design:check` runs both and fails if the committed generated theme is stale.
+`design:lint` validates `DESIGN.md` against Google's alpha format. `design:build` exports the tokens to Tailwind v4 CSS and replaces the generated file atomically. `design:check` validates the document and compares the generated file with a fresh export without changing either file. It fails when the generated theme is missing or stale, regardless of Git staging state.
 
 Run `yarn build` and `yarn build:css` after adding JavaScript or styles. `build:css` bundles Web Awesome's full stylesheet—including its required utilities and modal scroll lock—into `webawesome.css`, then builds the Tailwind application stylesheet. The generated design-token CSS is committed so a fresh clone can boot without requiring token generation first.
 

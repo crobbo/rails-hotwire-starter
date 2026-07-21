@@ -5,7 +5,7 @@ class ComponentsControllerTest < ActionDispatch::IntegrationTest
     get components_url
 
     assert_response :success
-    assert_select "h1", "Quiet Utility"
+    assert_select "h1", "Mulberry & Ink"
     assert_select "wa-dialog[label='Example dialog'] [slot='footer'] wa-button", "Close"
     assert_select "wa-copy-button[tooltip='copy'] wa-button[aria-label='Copy Rails command']", "Copy"
     assert_select "wa-animated-image[src='/web-awesome-demo.gif']"

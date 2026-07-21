@@ -11,7 +11,7 @@
     "build:webawesome-css": "esbuild node_modules/@awesome.me/webawesome/dist/styles/webawesome.css --bundle --minify --outfile=app/assets/builds/webawesome.css",
     "design:lint": "designmd lint DESIGN.md",
     "design:build": "node script/build-design-theme.mjs",
-    "design:check": "yarn design:lint && yarn design:build && git diff --exit-code -- app/assets/stylesheets/design/generated-theme.css"
+    "design:check": "yarn design:lint && node script/build-design-theme.mjs --check"
   },
   "dependencies": {
     "@awesome.me/webawesome": "3.10.0",

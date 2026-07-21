@@ -19,13 +19,9 @@
     --wa-border-radius-l: var(--radius-lg);
     --wa-border-radius-pill: var(--radius-full);
 
-    --wa-color-focus: var(--color-focus);
     --wa-focus-ring-width: 0.1875rem;
     --wa-focus-ring-offset: 0.125rem;
 
-    --wa-color-brand-fill-loud: var(--color-primary);
-    --wa-color-brand-border-loud: var(--color-primary);
-    --wa-color-brand-on-loud: var(--color-on-primary);
     --wa-form-control-border-radius: var(--radius-md);
     --wa-panel-border-radius: var(--radius-lg);
     --wa-transition-normal: 180ms;
@@ -34,6 +30,10 @@
   :where(:root),
   .wa-theme-default,
   .wa-light {
+    --wa-color-focus: var(--color-focus);
+    --wa-color-brand-fill-loud: var(--color-primary);
+    --wa-color-brand-border-loud: var(--color-primary);
+    --wa-color-brand-on-loud: var(--color-on-primary);
     --wa-color-surface-raised: var(--color-surface);
     --wa-color-surface-default: var(--color-surface);
     --wa-color-surface-lowered: var(--color-surface-subtle);
@@ -47,13 +47,17 @@
   }
 
   .wa-dark {
+    --wa-color-focus: var(--color-focus-dark);
+    --wa-color-brand-fill-loud: var(--color-primary-dark);
+    --wa-color-brand-border-loud: var(--color-primary-dark);
+    --wa-color-brand-on-loud: var(--color-on-primary-dark);
     --wa-color-surface-raised: var(--color-surface-subtle-dark);
     --wa-color-surface-default: var(--color-surface-dark);
     --wa-color-surface-lowered: var(--color-canvas-dark);
     --wa-color-surface-border: var(--color-border-dark);
     --wa-color-text-normal: var(--color-text-dark);
     --wa-color-text-quiet: var(--color-text-muted-dark);
-    --wa-color-text-link: var(--color-primary);
+    --wa-color-text-link: var(--color-primary-dark);
     --wa-color-neutral-border-loud: var(--color-border-dark);
     --wa-form-control-background-color: var(--color-surface-dark);
     --wa-form-control-border-color: var(--color-border-dark);
