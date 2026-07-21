@@ -1,0 +1,124 @@
+<section class="catalogue-section" aria-labelledby="catalogue-utilities-heading">
+  <header class="catalogue-section__header">
+    <h3 id="catalogue-utilities-heading" class="catalogue-section__title">Layout and utilities</h3>
+    <p class="catalogue-section__description">Composition primitives and browser observers that support larger interfaces.</p>
+  </header>
+
+  <div class="catalogue-grid">
+    <article class="catalogue-specimen catalogue-specimen--full">
+      <h4 class="catalogue-specimen__title"><code>wa-split-panel</code></h4>
+      <wa-split-panel class="catalogue-split" position="38">
+        <div slot="start" class="catalogue-panel">Navigation</div>
+        <div slot="end" class="catalogue-panel catalogue-panel--end">Workspace</div>
+      </wa-split-panel>
+    </article>
+
+    <article class="catalogue-specimen catalogue-specimen--full" data-controller="catalogue">
+      <h4 class="catalogue-specimen__title"><code>wa-page</code></h4>
+      <p class="catalogue-specimen__description">A minimal responsive shell with a header, navigation, and main content.</p>
+      <div class="catalogue-demo-toolbar" role="group" aria-label="Page preview viewport">
+        <wa-button appearance="filled" size="s" aria-pressed="true" data-catalogue-target="pageDesktopButton" data-action="click->catalogue#showDesktopPage">Desktop</wa-button>
+        <wa-button appearance="outlined" size="s" aria-pressed="false" data-catalogue-target="pageMobileButton" data-action="click->catalogue#showMobilePage">Mobile</wa-button>
+      </div>
+      <div class="catalogue-page-frame">
+        <iframe
+          class="catalogue-page-preview"
+          src="<%= components_page_preview_path %>"
+          title="Responsive Web Awesome page shell preview"
+          data-catalogue-target="pageFrame"
+        ></iframe>
+      </div>
+      <p class="catalogue-demo-status" role="status" aria-live="polite" data-catalogue-target="pageStatus">Desktop page shell.</p>
+    </article>
+
+    <article class="catalogue-specimen">
+      <h4 class="catalogue-specimen__title"><code>wa-popup</code></h4>
+      <div class="catalogue-popup-stage">
+        <wa-popup active placement="bottom" distance="8" arrow>
+          <wa-button slot="anchor" appearance="outlined">Anchor</wa-button>
+          <div class="catalogue-popup-panel">Precisely positioned</div>
+        </wa-popup>
+      </div>
+    </article>
+
+    <article class="catalogue-specimen">
+      <h4 class="catalogue-specimen__title"><code>wa-include</code></h4>
+      <div class="catalogue-utility-box">
+        <wa-include src="<%= components_include_fragment_path %>"></wa-include>
+      </div>
+    </article>
+
+    <article class="catalogue-specimen catalogue-specimen--wide" data-controller="catalogue">
+      <h4 class="catalogue-specimen__title"><code>wa-animation</code></h4>
+      <div class="catalogue-animation-stage">
+        <wa-animation
+          name="bounce"
+          duration="700"
+          easing="ease-out"
+          iterations="1"
+          data-catalogue-target="animation"
+          data-action="wa-start->catalogue#animationStarted wa-finish->catalogue#animationFinished wa-cancel->catalogue#animationCanceled"
+        >
+          <div class="catalogue-animation-chip"><wa-icon name="wand-magic-sparkles"></wa-icon> Animate me</div>
+        </wa-animation>
+      </div>
+      <div class="catalogue-animation-controls">
+        <wa-select label="Preset" value="bounce" size="s" data-catalogue-target="animationName" data-action="change->catalogue#changeAnimation">
+          <wa-option value="bounce">Bounce</wa-option>
+          <wa-option value="fadeInRight">Fade in right</wa-option>
+          <wa-option value="flip">Flip</wa-option>
+          <wa-option value="tada">Tada</wa-option>
+        </wa-select>
+        <div class="catalogue-demo-controls">
+          <wa-button appearance="filled" size="s" data-action="click->catalogue#playAnimation"><wa-icon slot="start" name="play"></wa-icon>Play</wa-button>
+          <wa-button appearance="outlined" size="s" data-action="click->catalogue#pauseAnimation"><wa-icon slot="start" name="pause"></wa-icon>Pause</wa-button>
+          <wa-button appearance="outlined" size="s" data-action="click->catalogue#restartAnimation"><wa-icon slot="start" name="rotate-right"></wa-icon>Restart</wa-button>
+        </div>
+      </div>
+      <p class="catalogue-demo-status" role="status" data-catalogue-target="animationStatus">Choose a preset, then play it.</p>
+    </article>
+
+    <article class="catalogue-specimen" data-controller="catalogue">
+      <h4 class="catalogue-specimen__title"><code>wa-random-content</code></h4>
+      <wa-random-content mode="sequence" items="1" animation="fade" data-catalogue-target="randomContent">
+        <p>Ship useful defaults.</p>
+        <p>Customize through tokens.</p>
+        <p>Keep Rails in control.</p>
+      </wa-random-content>
+      <div class="catalogue-demo-controls">
+        <wa-button appearance="outlined" size="s" data-action="click->catalogue#randomize">Show next</wa-button>
+        <span class="catalogue-demo-status" role="status" data-catalogue-target="randomStatus">Showing one of three messages.</span>
+      </div>
+    </article>
+
+    <article class="catalogue-specimen" data-controller="catalogue">
+      <h4 class="catalogue-specimen__title"><code>wa-intersection-observer</code></h4>
+      <wa-intersection-observer once data-action="wa-intersect->catalogue#intersectionChanged">
+        <div class="catalogue-utility-box">Observed when visible</div>
+      </wa-intersection-observer>
+      <p class="catalogue-demo-status" role="status" data-catalogue-target="intersectionStatus">Waiting for the viewport event.</p>
+    </article>
+
+    <article class="catalogue-specimen" data-controller="catalogue">
+      <h4 class="catalogue-specimen__title"><code>wa-resize-observer</code></h4>
+      <wa-resize-observer data-action="wa-resize->catalogue#resized">
+        <div class="catalogue-utility-box catalogue-utility-box--resizable" data-catalogue-target="resizeBox">Resize-aware content</div>
+      </wa-resize-observer>
+      <div class="catalogue-demo-controls">
+        <wa-button appearance="outlined" size="s" data-action="click->catalogue#resize">Resize</wa-button>
+        <span class="catalogue-demo-status" role="status" data-catalogue-target="resizeStatus">Watching the content width.</span>
+      </div>
+    </article>
+
+    <article class="catalogue-specimen catalogue-specimen--wide" data-controller="catalogue">
+      <h4 class="catalogue-specimen__title"><code>wa-mutation-observer</code></h4>
+      <wa-mutation-observer child-list attr="data-state" data-action="wa-mutation->catalogue#mutated">
+        <div class="catalogue-utility-box" data-state="ready" data-catalogue-target="mutationBox">Ready for a DOM change.</div>
+      </wa-mutation-observer>
+      <div class="catalogue-demo-controls">
+        <wa-button appearance="outlined" size="s" data-action="click->catalogue#mutate">Change content</wa-button>
+        <span class="catalogue-demo-status" role="status" data-catalogue-target="mutationStatus">Watching attributes and child nodes.</span>
+      </div>
+    </article>
+  </div>
+</section>

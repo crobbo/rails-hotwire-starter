@@ -1,0 +1,84 @@
+<section class="catalogue-section" aria-labelledby="catalogue-actions-heading">
+  <header class="catalogue-section__header">
+    <h3 id="catalogue-actions-heading" class="catalogue-section__title">Actions and overlays</h3>
+    <p class="catalogue-section__description">Triggers, contextual actions, and top-layer interfaces.</p>
+  </header>
+
+  <div class="catalogue-grid">
+    <article class="catalogue-specimen">
+      <h4 class="catalogue-specimen__title"><code>wa-button</code> and <code>wa-button-group</code></h4>
+      <wa-button-group label="Editor alignment">
+        <wa-button appearance="outlined"><wa-icon name="align-left" label="Align left"></wa-icon></wa-button>
+        <wa-button appearance="outlined"><wa-icon name="align-center" label="Align center"></wa-icon></wa-button>
+        <wa-button appearance="outlined"><wa-icon name="align-right" label="Align right"></wa-icon></wa-button>
+      </wa-button-group>
+    </article>
+
+    <article class="catalogue-specimen">
+      <h4 class="catalogue-specimen__title"><code>wa-copy-button</code></h4>
+      <div class="catalogue-row">
+        <code class="catalogue-code">bin/rails server</code>
+        <wa-copy-button
+          value="bin/rails server"
+          copy-label="Copy Rails command"
+          success-label="Copied Rails command"
+          tooltip="copy"
+        >
+          <wa-button appearance="outlined" size="s" aria-label="Copy Rails command">
+            <wa-icon slot="start" name="copy"></wa-icon>
+            Copy
+          </wa-button>
+        </wa-copy-button>
+      </div>
+    </article>
+
+    <article class="catalogue-specimen">
+      <h4 class="catalogue-specimen__title"><code>wa-dropdown</code> and <code>wa-dropdown-item</code></h4>
+      <wa-dropdown placement="bottom-start">
+        <wa-button slot="trigger" appearance="outlined" with-caret>Project actions</wa-button>
+        <wa-dropdown-item value="duplicate"><wa-icon slot="icon" name="copy"></wa-icon>Duplicate</wa-dropdown-item>
+        <wa-dropdown-item value="archive"><wa-icon slot="icon" name="box-archive"></wa-icon>Archive</wa-dropdown-item>
+      </wa-dropdown>
+    </article>
+
+    <article class="catalogue-specimen">
+      <h4 class="catalogue-specimen__title"><code>wa-tooltip</code></h4>
+      <wa-button id="catalogue-tooltip-anchor" appearance="outlined">
+        <wa-icon name="circle-question" label="Help"></wa-icon>
+      </wa-button>
+      <wa-tooltip for="catalogue-tooltip-anchor">Keyboard shortcuts</wa-tooltip>
+    </article>
+
+    <article class="catalogue-specimen">
+      <h4 class="catalogue-specimen__title"><code>wa-popover</code></h4>
+      <wa-button id="catalogue-popover-anchor" appearance="outlined">Show context</wa-button>
+      <wa-popover for="catalogue-popover-anchor" placement="bottom-start">
+        <p class="catalogue-popover-copy">Popover content can contain links and controls.</p>
+      </wa-popover>
+    </article>
+
+    <article class="catalogue-specimen" data-controller="dialog">
+      <h4 class="catalogue-specimen__title"><code>wa-dialog</code></h4>
+      <%= render UI::ButtonComponent.new(appearance: :outlined, data: {action: "click->dialog#open"}) do %>
+        Open example
+      <% end %>
+      <%= render UI::DialogComponent.new(label: "Example dialog", data: {dialog_target: "dialog"}) do |dialog| %>
+        <p class="catalogue-copy">A reusable modal with managed focus and keyboard dismissal.</p>
+        <% dialog.with_footer do %>
+          <%= render UI::ButtonComponent.new(data: {action: "click->dialog#close"}) do %>
+            Close
+          <% end %>
+        <% end %>
+      <% end %>
+    </article>
+
+    <article class="catalogue-specimen" data-controller="dialog">
+      <h4 class="catalogue-specimen__title"><code>wa-drawer</code></h4>
+      <wa-button appearance="outlined" data-action="click->dialog#open">Open drawer</wa-button>
+      <wa-drawer label="Example drawer" placement="end" light-dismiss data-dialog-target="dialog">
+        <p class="catalogue-copy">Drawers work well for secondary tasks and navigation.</p>
+        <wa-button slot="footer" data-action="click->dialog#close">Close</wa-button>
+      </wa-drawer>
+    </article>
+  </div>
+</section>

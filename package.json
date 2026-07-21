@@ -2,13 +2,19 @@
   "name": "app",
   "private": true,
   "devDependencies": {
+    "@google/design.md": "0.3.0",
     "esbuild": "^0.28.1"
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets",
-    "build:css": "npx @tailwindcss/cli -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify"
+    "build:css": "yarn build:webawesome-css && npx @tailwindcss/cli -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify",
+    "build:webawesome-css": "esbuild node_modules/@awesome.me/webawesome/dist/styles/webawesome.css --bundle --minify --outfile=app/assets/builds/webawesome.css",
+    "design:lint": "designmd lint DESIGN.md",
+    "design:build": "node script/build-design-theme.mjs",
+    "design:check": "yarn design:lint && yarn design:build && git diff --exit-code -- app/assets/stylesheets/design/generated-theme.css"
   },
   "dependencies": {
+    "@awesome.me/webawesome": "3.10.0",
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^8.0.23",
     "@tailwindcss/cli": "^4.3.2",

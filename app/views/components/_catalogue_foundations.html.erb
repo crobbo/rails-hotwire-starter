@@ -1,0 +1,145 @@
+<section class="catalogue-section" aria-labelledby="catalogue-foundations-heading">
+  <header class="catalogue-section__header">
+    <h3 id="catalogue-foundations-heading" class="catalogue-section__title">Status and feedback</h3>
+    <p class="catalogue-section__description">Small signals, identity, loading, and system feedback.</p>
+  </header>
+
+  <div class="catalogue-grid">
+    <article class="catalogue-specimen">
+      <h4 class="catalogue-specimen__title"><code>wa-avatar</code></h4>
+      <div class="catalogue-row">
+        <wa-avatar initials="CR" label="Christian Robb"></wa-avatar>
+        <wa-avatar initials="WA" label="Web Awesome" shape="rounded"></wa-avatar>
+        <wa-avatar label="Generic account"><wa-icon slot="icon" name="user"></wa-icon></wa-avatar>
+      </div>
+    </article>
+
+    <article class="catalogue-specimen catalogue-specimen--full">
+      <h4 class="catalogue-specimen__title"><code>wa-badge</code></h4>
+      <div class="catalogue-capability-stack">
+        <section class="catalogue-capability-group" aria-labelledby="badge-variants-heading">
+          <h5 id="badge-variants-heading" class="catalogue-capability-label">Variants</h5>
+          <div class="catalogue-row">
+            <wa-badge variant="brand">Brand</wa-badge>
+            <wa-badge variant="success">Success</wa-badge>
+            <wa-badge variant="neutral">Neutral</wa-badge>
+            <wa-badge variant="warning">Warning</wa-badge>
+            <wa-badge variant="danger">Danger</wa-badge>
+          </div>
+        </section>
+
+        <section class="catalogue-capability-group" aria-labelledby="badge-appearances-heading">
+          <h5 id="badge-appearances-heading" class="catalogue-capability-label">Appearances</h5>
+          <div class="catalogue-badge-appearances">
+            <% %w[accent filled filled-outlined outlined].each do |appearance| %>
+              <div class="catalogue-badge-appearance-row">
+                <span><%= appearance.titleize %></span>
+                <div class="catalogue-row">
+                  <% %w[brand success neutral warning danger].each do |variant| %>
+                    <wa-badge variant="<%= variant %>" appearance="<%= appearance %>"><%= variant.titleize %></wa-badge>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </section>
+
+        <section class="catalogue-capability-group" aria-labelledby="badge-sizes-heading">
+          <h5 id="badge-sizes-heading" class="catalogue-capability-label">Relative sizing</h5>
+          <div class="catalogue-row catalogue-badge-sizes">
+            <wa-badge class="catalogue-badge--xs">Extra small</wa-badge>
+            <wa-badge class="catalogue-badge--sm">Small</wa-badge>
+            <wa-badge class="catalogue-badge--md">Medium</wa-badge>
+            <wa-badge class="catalogue-badge--lg">Large</wa-badge>
+            <wa-badge class="catalogue-badge--xl">Extra large</wa-badge>
+          </div>
+        </section>
+
+        <section class="catalogue-capability-group" aria-labelledby="badge-pills-heading">
+          <h5 id="badge-pills-heading" class="catalogue-capability-label">Pills and attention</h5>
+          <div class="catalogue-row">
+            <wa-badge variant="brand" pill>Brand</wa-badge>
+            <wa-badge variant="success" pill>Success</wa-badge>
+            <wa-badge variant="neutral" pill>Neutral</wa-badge>
+            <wa-badge variant="warning" attention="pulse" pill>Pulse</wa-badge>
+            <wa-badge variant="danger" attention="bounce" pill>Bounce</wa-badge>
+          </div>
+        </section>
+
+        <section class="catalogue-capability-group" aria-labelledby="badge-decorations-heading">
+          <h5 id="badge-decorations-heading" class="catalogue-capability-label">Decorations and buttons</h5>
+          <div class="catalogue-row">
+            <wa-badge variant="success">
+              <wa-icon slot="start" name="circle-check"></wa-icon>
+              Ready
+            </wa-badge>
+            <wa-badge variant="brand">
+              Synced
+              <wa-icon slot="end" name="cloud-arrow-up"></wa-icon>
+            </wa-badge>
+            <wa-button appearance="outlined" size="s">
+              Requests
+              <wa-badge slot="end" variant="brand" pill>25</wa-badge>
+            </wa-button>
+            <wa-button appearance="outlined" size="s">
+              Errors
+              <wa-badge slot="end" variant="danger" pill>3</wa-badge>
+            </wa-button>
+          </div>
+        </section>
+      </div>
+    </article>
+
+    <article class="catalogue-specimen" data-controller="catalogue">
+      <h4 class="catalogue-specimen__title"><code>wa-tag</code></h4>
+      <div class="catalogue-row">
+        <wa-tag variant="brand" with-remove data-action="wa-remove->catalogue#removeTag">Rails</wa-tag>
+        <wa-tag variant="neutral" appearance="outlined">Hotwire</wa-tag>
+      </div>
+      <p class="catalogue-demo-status" role="status" data-catalogue-target="tagStatus">Remove a tag to see its event.</p>
+    </article>
+
+    <article class="catalogue-specimen">
+      <h4 class="catalogue-specimen__title"><code>wa-icon</code></h4>
+      <div class="catalogue-row catalogue-icons" aria-label="Interface icon examples">
+        <wa-icon name="bolt" label="Fast"></wa-icon>
+        <wa-icon name="layer-group" label="Components"></wa-icon>
+        <wa-icon name="wand-magic-sparkles" label="Customizable"></wa-icon>
+        <wa-icon name="universal-access" label="Accessible"></wa-icon>
+      </div>
+    </article>
+
+    <article class="catalogue-specimen">
+      <h4 class="catalogue-specimen__title"><code>wa-spinner</code> and progress</h4>
+      <div class="catalogue-row">
+        <wa-spinner aria-label="Loading"></wa-spinner>
+        <wa-progress-ring value="68" label="68 percent complete">68%</wa-progress-ring>
+      </div>
+      <wa-progress-bar class="mt-md" value="68" label="Upload progress">68%</wa-progress-bar>
+    </article>
+
+    <article class="catalogue-specimen catalogue-specimen--wide">
+      <h4 class="catalogue-specimen__title"><code>wa-skeleton</code></h4>
+      <div class="catalogue-skeleton" aria-label="Loading content placeholder">
+        <wa-skeleton effect="sheen"></wa-skeleton>
+        <wa-skeleton effect="sheen"></wa-skeleton>
+        <wa-skeleton effect="sheen"></wa-skeleton>
+      </div>
+    </article>
+
+    <article class="catalogue-specimen catalogue-specimen--wide">
+      <h4 class="catalogue-specimen__title"><code>wa-callout</code></h4>
+      <wa-callout variant="brand" appearance="outlined">
+        <wa-icon slot="icon" name="circle-info"></wa-icon>
+        All components inherit the starter's semantic design tokens.
+      </wa-callout>
+    </article>
+
+    <article class="catalogue-specimen catalogue-specimen--full">
+      <h4 class="catalogue-specimen__title"><code>wa-divider</code></h4>
+      <p class="catalogue-copy">Content before the divider.</p>
+      <wa-divider></wa-divider>
+      <p class="catalogue-copy">Content after the divider.</p>
+    </article>
+  </div>
+</section>

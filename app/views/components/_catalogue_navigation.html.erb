@@ -1,0 +1,55 @@
+<section class="catalogue-section" aria-labelledby="catalogue-navigation-heading">
+  <header class="catalogue-section__header">
+    <h3 id="catalogue-navigation-heading" class="catalogue-section__title">Navigation and disclosure</h3>
+    <p class="catalogue-section__description">Structures for moving through content and revealing detail.</p>
+  </header>
+
+  <div class="catalogue-grid">
+    <article class="catalogue-specimen catalogue-specimen--full">
+      <h4 class="catalogue-specimen__title"><code>wa-breadcrumb</code> and <code>wa-breadcrumb-item</code></h4>
+      <wa-breadcrumb label="Project location">
+        <wa-breadcrumb-item href="#catalogue">Workspace</wa-breadcrumb-item>
+        <wa-breadcrumb-item href="#catalogue-navigation-heading">Projects</wa-breadcrumb-item>
+        <wa-breadcrumb-item>Rails Starter</wa-breadcrumb-item>
+      </wa-breadcrumb>
+    </article>
+
+    <article class="catalogue-specimen">
+      <h4 class="catalogue-specimen__title"><code>wa-details</code></h4>
+      <wa-details summary="Implementation notes" appearance="outlined">
+        Web Awesome owns the interaction; Rails provides the content.
+      </wa-details>
+    </article>
+
+    <article class="catalogue-specimen">
+      <h4 class="catalogue-specimen__title"><code>wa-accordion</code> and <code>wa-accordion-item</code></h4>
+      <wa-accordion mode="single-collapsible" appearance="outlined">
+        <wa-accordion-item label="Design tokens" expanded>Generated from DESIGN.md.</wa-accordion-item>
+        <wa-accordion-item label="Rails wrappers">Thin, typed component APIs.</wa-accordion-item>
+      </wa-accordion>
+    </article>
+
+    <article class="catalogue-specimen catalogue-specimen--wide">
+      <h4 class="catalogue-specimen__title"><code>wa-tab-group</code>, <code>wa-tab</code>, and <code>wa-tab-panel</code></h4>
+      <wa-tab-group active="preview">
+        <wa-tab panel="preview">Preview</wa-tab>
+        <wa-tab panel="usage">Usage</wa-tab>
+        <wa-tab-panel name="preview">Rendered component output.</wa-tab-panel>
+        <wa-tab-panel name="usage">Copy the corresponding ERB example.</wa-tab-panel>
+      </wa-tab-group>
+    </article>
+
+    <article class="catalogue-specimen catalogue-specimen--wide">
+      <h4 class="catalogue-specimen__title"><code>wa-tree</code> and <code>wa-tree-item</code></h4>
+      <wa-tree selection="single">
+        <wa-tree-item expanded>
+          app
+          <wa-tree-item>components</wa-tree-item>
+          <wa-tree-item>controllers</wa-tree-item>
+          <wa-tree-item>views</wa-tree-item>
+        </wa-tree-item>
+        <wa-tree-item>config</wa-tree-item>
+      </wa-tree>
+    </article>
+  </div>
+</section>

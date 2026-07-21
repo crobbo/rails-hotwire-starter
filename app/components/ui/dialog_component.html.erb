@@ -1,0 +1,11 @@
+<%= content_tag(:"wa-dialog", attributes) do %>
+  <% if header_actions? %>
+    <div slot="header-actions"><%= header_actions %></div>
+  <% end %>
+
+  <%= content %>
+
+  <% if footer? %>
+    <div slot="footer" class="flex flex-wrap justify-end gap-sm"><%= footer %></div>
+  <% end %>
+<% end %>

@@ -1,0 +1,13 @@
+<%= content_tag(:"wa-dropdown-item", attributes) do %>
+  <% if icon? %>
+    <%= content_tag(:"wa-icon", nil, icon_attributes) %>
+  <% end %>
+
+  <%= label_content %>
+
+  <% if detail_content.present? %>
+    <span slot="details"><%= detail_content %></span>
+  <% end %>
+
+  <%= safe_join(submenu_components.map { |component| render(component) }) %>
+<% end %>

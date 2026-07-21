@@ -1,0 +1,85 @@
+<section class="catalogue-section" aria-labelledby="catalogue-content-heading">
+  <header class="catalogue-section__header">
+    <h3 id="catalogue-content-heading" class="catalogue-section__title">Content and media</h3>
+    <p class="catalogue-section__description">Containers, rich content, data formatting, and visual media.</p>
+  </header>
+
+  <div class="catalogue-grid">
+    <article class="catalogue-specimen">
+      <h4 class="catalogue-specimen__title"><code>wa-card</code></h4>
+      <wa-card appearance="outlined" with-header with-footer>
+        <strong slot="header">Deployment</strong>
+        Your Rails application is ready to ship.
+        <span slot="footer">Updated just now</span>
+      </wa-card>
+    </article>
+
+    <article class="catalogue-specimen">
+      <h4 class="catalogue-specimen__title">Formatters and <code>wa-relative-time</code></h4>
+      <dl class="catalogue-data-list">
+        <div><dt>Bytes</dt><dd><wa-format-bytes value="1240000"></wa-format-bytes></dd></div>
+        <div><dt>Number</dt><dd><wa-format-number value="12840" notation="compact"></wa-format-number></dd></div>
+        <div><dt>Date</dt><dd><wa-format-date date="2026-07-21T12:00:00Z" month="long" day="numeric" year="numeric"></wa-format-date></dd></div>
+        <div><dt>Relative</dt><dd><wa-relative-time date="2026-07-21T12:00:00Z" numeric="auto"></wa-relative-time></dd></div>
+      </dl>
+    </article>
+
+    <article class="catalogue-specimen catalogue-specimen--full">
+      <h4 class="catalogue-specimen__title"><code>wa-carousel</code> and <code>wa-carousel-item</code></h4>
+      <wa-carousel class="catalogue-carousel" navigation pagination loop>
+        <wa-carousel-item><div class="catalogue-slide catalogue-slide--brand">Design tokens</div></wa-carousel-item>
+        <wa-carousel-item><div class="catalogue-slide catalogue-slide--neutral">Rails wrappers</div></wa-carousel-item>
+        <wa-carousel-item><div class="catalogue-slide catalogue-slide--dark">Hotwire behavior</div></wa-carousel-item>
+      </wa-carousel>
+    </article>
+
+    <article class="catalogue-specimen">
+      <h4 class="catalogue-specimen__title"><code>wa-comparison</code></h4>
+      <wa-comparison class="catalogue-comparison" position="54">
+        <div slot="before" class="catalogue-comparison__side catalogue-comparison__side--before"><span>Before</span></div>
+        <div slot="after" class="catalogue-comparison__side catalogue-comparison__side--after"><span>After</span></div>
+      </wa-comparison>
+    </article>
+
+    <article class="catalogue-specimen">
+      <h4 class="catalogue-specimen__title"><code>wa-animated-image</code></h4>
+      <wa-animated-image class="catalogue-image" src="/web-awesome-demo.gif" alt="Blue activity indicator moving along a track"></wa-animated-image>
+    </article>
+
+    <article class="catalogue-specimen">
+      <h4 class="catalogue-specimen__title"><code>wa-qr-code</code></h4>
+      <wa-qr-code value="http://localhost:3000/components" label="Open the component catalogue" size="144" radius="0.2"></wa-qr-code>
+    </article>
+
+    <article class="catalogue-specimen">
+      <h4 class="catalogue-specimen__title"><code>wa-markdown</code></h4>
+      <wa-markdown>
+        <script type="text/markdown">
+          ### Rails + Web Awesome
+
+          Components remain **server rendered** and progressively enhanced.
+        </script>
+      </wa-markdown>
+    </article>
+
+    <article class="catalogue-specimen catalogue-specimen--wide">
+      <h4 class="catalogue-specimen__title"><code>wa-scroller</code></h4>
+      <wa-scroller class="catalogue-scroller" orientation="horizontal">
+        <div class="catalogue-scroller__track">
+          <span>Overview</span><span>Activity</span><span>Members</span><span>Automations</span><span>Integrations</span><span>Settings</span>
+        </div>
+      </wa-scroller>
+    </article>
+
+    <article class="catalogue-specimen catalogue-specimen--wide">
+      <h4 class="catalogue-specimen__title"><code>wa-zoomable-frame</code></h4>
+      <wa-zoomable-frame
+        class="catalogue-frame"
+        srcdoc="<style>body{font:16px system-ui;margin:0;padding:2rem;background:#f4f7fb;color:#172033}strong{color:#356ae6}</style><strong>Zoomable preview</strong><p>Self-contained iframe content.</p>"
+        zoom="1"
+        sandbox=""
+        without-interaction
+      ></wa-zoomable-frame>
+    </article>
+  </div>
+</section>

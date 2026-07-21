@@ -1,0 +1,16 @@
+<section id="catalogue" class="py-xl lg:py-xxl" aria-labelledby="catalogue-heading">
+  <div class="max-w-3xl">
+    <p class="mb-sm font-label-sm text-label-sm weight-label-sm leading-label-sm tracking-label-sm text-primary">COMPLETE CATALOGUE</p>
+    <h2 id="catalogue-heading" class="font-headline-sm text-headline-sm weight-headline-sm leading-headline-sm tracking-headline-sm text-text">All 66 components, rendered</h2>
+    <p class="mt-md font-body-md text-body-md weight-body-md leading-body-md text-text-muted">
+      These are the free components installed with Web Awesome 3.10. Rails wrappers are used where they add a useful application API; the remaining primitives are shown directly.
+    </p>
+  </div>
+
+  <%= render "catalogue_foundations" %>
+  <%= render "catalogue_actions" %>
+  <%= render "catalogue_forms" %>
+  <%= render "catalogue_navigation" %>
+  <%= render "catalogue_content" %>
+  <%= render "catalogue_utilities" %>
+</section>

@@ -1,0 +1,11 @@
+<%= content_tag(:nav, attributes) do %>
+  <div class="ui-navbar__brand"><%= brand %></div>
+
+  <% if links.any? %>
+    <div class="ui-navbar__links"><%= safe_join(links) %></div>
+  <% end %>
+
+  <% if actions? %>
+    <div class="ui-navbar__actions"><%= actions %></div>
+  <% end %>
+<% end %>

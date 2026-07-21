@@ -1,0 +1,78 @@
+<section class="catalogue-section" aria-labelledby="catalogue-forms-heading">
+  <header class="catalogue-section__header">
+    <h3 id="catalogue-forms-heading" class="catalogue-section__title">Form controls</h3>
+    <p class="catalogue-section__description">Form-associated controls submit native values and expose accessible labels.</p>
+  </header>
+
+  <div class="catalogue-grid">
+    <article class="catalogue-specimen">
+      <h4 class="catalogue-specimen__title"><code>wa-input</code></h4>
+      <wa-input label="Email address" type="email" value="hello@example.com" with-clear></wa-input>
+    </article>
+
+    <article class="catalogue-specimen">
+      <h4 class="catalogue-specimen__title"><code>wa-number-input</code></h4>
+      <wa-number-input label="Seats" value="8" min="1" max="50" step="1"></wa-number-input>
+    </article>
+
+    <article class="catalogue-specimen">
+      <h4 class="catalogue-specimen__title"><code>wa-select</code> and <code>wa-option</code></h4>
+      <wa-select label="Priority" value="normal">
+        <wa-option value="low">Low</wa-option>
+        <wa-option value="normal" selected>Normal</wa-option>
+        <wa-option value="high">High</wa-option>
+      </wa-select>
+    </article>
+
+    <article class="catalogue-specimen">
+      <h4 class="catalogue-specimen__title"><code>wa-textarea</code></h4>
+      <wa-textarea label="Notes" rows="3" maxlength="120" with-count value="Useful context for the next person."></wa-textarea>
+    </article>
+
+    <article class="catalogue-specimen">
+      <h4 class="catalogue-specimen__title"><code>wa-checkbox</code> and <code>wa-checkbox-group</code></h4>
+      <wa-checkbox-group label="Notifications" name="notifications" orientation="vertical">
+        <wa-checkbox value="mentions" checked>Mentions</wa-checkbox>
+        <wa-checkbox value="updates">Project updates</wa-checkbox>
+      </wa-checkbox-group>
+    </article>
+
+    <article class="catalogue-specimen">
+      <h4 class="catalogue-specimen__title"><code>wa-radio</code> and <code>wa-radio-group</code></h4>
+      <wa-radio-group label="Visibility" name="visibility" value="workspace">
+        <wa-radio value="private">Private</wa-radio>
+        <wa-radio value="workspace" checked>Workspace</wa-radio>
+      </wa-radio-group>
+    </article>
+
+    <article class="catalogue-specimen">
+      <h4 class="catalogue-specimen__title"><code>wa-switch</code></h4>
+      <wa-switch checked hint="Apply changes automatically.">Autosave</wa-switch>
+    </article>
+
+    <article class="catalogue-specimen">
+      <h4 class="catalogue-specimen__title"><code>wa-rating</code></h4>
+      <wa-rating label="Rate this component" value="4" precision="0.5"></wa-rating>
+    </article>
+
+    <article class="catalogue-specimen catalogue-specimen--wide">
+      <h4 class="catalogue-specimen__title"><code>wa-slider</code></h4>
+      <wa-slider label="Confidence" value="72" min="0" max="100" step="10" with-markers with-tooltip></wa-slider>
+    </article>
+
+    <article class="catalogue-specimen">
+      <h4 class="catalogue-specimen__title"><code>wa-color-picker</code></h4>
+      <wa-color-picker label="Brand color" value="#356ae6" swatches="#356ae6; #16a34a; #d97706; #dc2626"></wa-color-picker>
+    </article>
+
+    <article class="catalogue-specimen">
+      <h4 class="catalogue-specimen__title"><code>wa-known-date</code></h4>
+      <wa-known-date label="Launch date" value="2026-09-14"></wa-known-date>
+    </article>
+
+    <article class="catalogue-specimen catalogue-specimen--wide">
+      <h4 class="catalogue-specimen__title"><code>wa-time-input</code></h4>
+      <wa-time-input label="Daily reminder" value="14:30" with-clear with-now></wa-time-input>
+    </article>
+  </div>
+</section>

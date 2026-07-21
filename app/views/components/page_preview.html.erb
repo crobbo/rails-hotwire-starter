@@ -1,0 +1,40 @@
+<wa-page class="page-preview" mobile-breakpoint="640px">
+  <header slot="header" class="page-preview__header">
+    <a href="#" class="page-preview__brand">Northstar</a>
+    <wa-badge variant="brand" appearance="filled" pill>Starter</wa-badge>
+    <wa-button appearance="outlined" size="s">Share</wa-button>
+  </header>
+
+  <div slot="navigation-header" class="page-preview__navigation-header">
+    <wa-avatar initials="NS" label="Northstar workspace"></wa-avatar>
+    <div><strong>Northstar</strong><span>Workspace</span></div>
+  </div>
+
+  <nav slot="navigation" class="page-preview__navigation" aria-label="Preview navigation">
+    <a href="#" aria-current="page"><wa-icon name="folder-open"></wa-icon>Projects</a>
+    <a href="#"><wa-icon name="list-check"></wa-icon>Tasks</a>
+    <a href="#"><wa-icon name="users"></wa-icon>People</a>
+  </nav>
+
+  <header slot="main-header" class="page-preview__main-header">
+    <h1>Projects</h1>
+    <wa-button variant="brand" appearance="accent" size="s"><wa-icon slot="start" name="plus"></wa-icon>New project</wa-button>
+  </header>
+
+  <main class="page-preview__content">
+    <div class="page-preview__project-row">
+      <div><strong>Rails starter</strong><span>Design system and components</span></div>
+      <wa-badge variant="success" appearance="filled" pill>On track</wa-badge>
+    </div>
+    <div class="page-preview__project-row">
+      <div><strong>Customer portal</strong><span>Account settings</span></div>
+      <wa-badge variant="warning" appearance="filled" pill>Review</wa-badge>
+    </div>
+    <div class="page-preview__project-row">
+      <div><strong>Reporting</strong><span>Usage and exports</span></div>
+      <wa-badge variant="neutral" appearance="filled" pill>Planned</wa-badge>
+    </div>
+  </main>
+
+  <footer slot="main-footer" class="page-preview__main-footer">3 projects</footer>
+</wa-page>

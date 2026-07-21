@@ -1,0 +1,61 @@
+/* Maps DESIGN.md's exported semantic tokens onto Web Awesome's public theme API. */
+@layer wa-theme {
+  :where(:root),
+  .wa-theme-default,
+  .wa-light,
+  .wa-dark {
+    --wa-font-family-body: var(--font-body-md);
+    --wa-font-family-heading: var(--font-headline-md);
+
+    --wa-space-2xs: var(--spacing-xs);
+    --wa-space-xs: var(--spacing-sm);
+    --wa-space-m: var(--spacing-md);
+    --wa-space-l: var(--spacing-lg);
+    --wa-space-xl: var(--spacing-xl);
+    --wa-space-3xl: var(--spacing-xxl);
+
+    --wa-border-radius-s: var(--radius-sm);
+    --wa-border-radius-m: var(--radius-md);
+    --wa-border-radius-l: var(--radius-lg);
+    --wa-border-radius-pill: var(--radius-full);
+
+    --wa-color-focus: var(--color-focus);
+    --wa-focus-ring-width: 0.1875rem;
+    --wa-focus-ring-offset: 0.125rem;
+
+    --wa-color-brand-fill-loud: var(--color-primary);
+    --wa-color-brand-border-loud: var(--color-primary);
+    --wa-color-brand-on-loud: var(--color-on-primary);
+    --wa-form-control-border-radius: var(--radius-md);
+    --wa-panel-border-radius: var(--radius-lg);
+    --wa-transition-normal: 180ms;
+  }
+
+  :where(:root),
+  .wa-theme-default,
+  .wa-light {
+    --wa-color-surface-raised: var(--color-surface);
+    --wa-color-surface-default: var(--color-surface);
+    --wa-color-surface-lowered: var(--color-surface-subtle);
+    --wa-color-surface-border: var(--color-border);
+    --wa-color-text-normal: var(--color-text);
+    --wa-color-text-quiet: var(--color-text-muted);
+    --wa-color-text-link: var(--color-primary);
+    --wa-color-neutral-border-loud: var(--color-border);
+    --wa-form-control-background-color: var(--color-surface);
+    --wa-form-control-border-color: var(--color-border);
+  }
+
+  .wa-dark {
+    --wa-color-surface-raised: var(--color-surface-subtle-dark);
+    --wa-color-surface-default: var(--color-surface-dark);
+    --wa-color-surface-lowered: var(--color-canvas-dark);
+    --wa-color-surface-border: var(--color-border-dark);
+    --wa-color-text-normal: var(--color-text-dark);
+    --wa-color-text-quiet: var(--color-text-muted-dark);
+    --wa-color-text-link: var(--color-primary);
+    --wa-color-neutral-border-loud: var(--color-border-dark);
+    --wa-form-control-background-color: var(--color-surface-dark);
+    --wa-form-control-border-color: var(--color-border-dark);
+  }
+}

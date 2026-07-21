@@ -1,1 +1,11 @@
-@import "tailwindcss";
+/*
+ * Web Awesome provides the document reset and base element styles. Importing
+ * Tailwind's Preflight as well would reset custom-element hosts and override
+ * component `:host` rules such as wa-badge's padding and border.
+ */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+@import "./design/generated-theme.css";
+@import "./design/web-awesome-theme.css";
+@import "./design/components.css";
