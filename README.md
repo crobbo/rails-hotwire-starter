@@ -20,21 +20,18 @@ All 66 components included in the pinned free Web Awesome package are registered
 
 ## Start a project
 
-Clone the starter into a directory named for the new application:
+Use GitHub's **Use this template** button, or open the [new repository form for this template](https://github.com/crobbo/rails-hotwire-starter/generate).
+
+1. Choose the owner, repository name, and visibility for the application.
+2. Create the repository from the template.
+3. Clone the newly created repository—not this starter repository:
 
 ```sh
-git clone <starter-repository-url> my-app
-cd my-app
+git clone https://github.com/<owner>/<new-repository>.git
+cd <new-repository>
 ```
 
-If the new application should have independent history, replace the starter repository metadata before making product changes:
-
-```sh
-rm -rf .git
-git init -b main
-git add --all
-git commit -m "chore: initialize application from Rails Hotwire Starter"
-```
+The generated repository starts with fresh history and its own `origin`, while retaining the starter's complete file structure. Clone `crobbo/rails-hotwire-starter` directly only when contributing improvements back to the starter itself.
 
 Rename these starter identifiers deliberately before deployment:
 
