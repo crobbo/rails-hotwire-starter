@@ -16,7 +16,7 @@ The starter intentionally provides infrastructure and useful defaults rather tha
 - ViewComponent for thin Rails-facing component APIs
 - Google's `design.md` format as the design source of truth
 
-All 66 components included in the pinned free Web Awesome package are registered and demonstrated at `/components`.
+All 66 components included in the version-locked Web Awesome 3.10 package are registered and demonstrated at `/components`.
 
 ## Start a project
 
@@ -99,7 +99,7 @@ See [`docs/design-system.md`](docs/design-system.md) for the complete workflow a
 
 Use Tailwind for page layout, responsive composition, spacing, and application-specific presentation. Use Web Awesome for interaction-rich primitives such as dialogs, menus, dropdowns, form controls, tooltips, tabs, drawers, and disclosures.
 
-The starter imports the complete pinned Web Awesome package in `app/javascript/lib/web_awesome.js`. This favors immediate availability over the smallest possible bundle. Product applications can prune the manifest deliberately when bundle size matters.
+The starter bundles every component from Web Awesome 3.10 through esbuild. The dependency version is locked in `package.json` and `yarn.lock`, while `app/javascript/lib/web_awesome.js` is the explicit component import manifest. This favors immediate availability over the smallest possible bundle. Product applications can remove unused component imports when bundle size matters.
 
 Create a `UI` ViewComponent wrapper when it adds Rails value—form naming, validation, typed options, ordered slots, Turbo links, accessible defaults, or Stimulus coordination. Avoid wrappers that merely rename Web Awesome attributes.
 
@@ -130,6 +130,6 @@ Browser-test user-facing changes at `/components`, including keyboard focus and 
 
 Rails follows `main`, while the lockfile keeps clones reproducible. Advance it deliberately with `bundle update rails`, review upstream changes, and run the full verification set.
 
-The Google `design.md` package and Web Awesome are pinned. Upgrade them independently, read their release notes, regenerate assets, confirm component coverage, and browser-test the catalogue before committing lockfile changes.
+The Google `design.md` package and Web Awesome are locked to exact dependency versions. Upgrade them independently, read their release notes, regenerate assets, confirm component coverage, and browser-test the catalogue before committing lockfile changes.
 
 The temporary Rails-main compatibility shim for ViewComponent is documented in [`docs/design-system.md`](docs/design-system.md). Remove it once the released ViewComponent version supports the current Rails API directly.

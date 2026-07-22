@@ -38,7 +38,7 @@ Use Tailwind for page layout, responsive behavior, spacing, and application-spec
 
 ViewComponent wrappers should express the Rails application's API, not conceal Web Awesome. Preserve documented slots, events, CSS parts, accessibility behavior, and useful custom properties. Stimulus coordinates application behavior such as opening a dialog after a Turbo response; it should not rebuild focus trapping, keyboard navigation, positioning, or dismissal.
 
-`app/javascript/lib/web_awesome.js` explicitly imports all 66 free components in the pinned package. Explicit imports let esbuild produce a reliable Rails asset; Web Awesome's lazy loader expects separately hosted component modules that this starter does not publish. The coverage test keeps the manifest synchronized with package upgrades.
+`app/javascript/lib/web_awesome.js` explicitly imports all 66 free components in the version-locked Web Awesome package. Explicit imports let esbuild produce a reliable Rails asset; Web Awesome's lazy loader expects separately hosted component modules that this starter does not publish. The coverage test keeps the manifest synchronized with package upgrades.
 
 After a wrapper exists for an application primitive, prefer that wrapper outside this preview. Use the remaining `wa-*` elements directly until a Rails-specific API would genuinely improve them. Applications with a strict bundle budget can prune the import manifest after cloning the starter.
 
@@ -129,6 +129,6 @@ Wrapper options deliberately use Web Awesome's names (`variant`, `appearance`, `
 
 ## Upgrades
 
-The Google `design.md` format is currently alpha and its package is pinned. Web Awesome is also pinned. Upgrade each deliberately, read its release notes, regenerate the theme, build assets, and browser-test the preview before committing the lockfile changes.
+The Google `design.md` format is currently alpha, and both it and Web Awesome are locked to exact dependency versions. Upgrade each deliberately, read its release notes, regenerate the theme, build assets, and browser-test the preview before committing the lockfile changes.
 
 Rails tracks `main`, which currently removed `ActionView::Template.template_handler_extensions` before ViewComponent 4.12 adopted its replacement. `config/initializers/view_component_rails_main.rb` provides a narrow, feature-detected compatibility alias. Remove it once ViewComponent uses `ActionView::Template::Handlers.extensions`.

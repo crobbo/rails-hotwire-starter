@@ -1,6 +1,6 @@
 # Web Awesome component coverage
 
-The pinned Web Awesome 3.10 package contains 66 free components. The starter registers all 66 in its application bundle and renders a representative example of every one at `/components`. Treat the package and lockfile as the implementation source of truth, and use the [Web Awesome component catalogue](https://webawesome.com/docs/components) for status and API documentation.
+The version-locked Web Awesome 3.10 package contains 66 free components. The starter registers all 66 in its application bundle and renders a representative example of every one at `/components`. Treat the package and lockfile as the implementation source of truth, and use the [Web Awesome component catalogue](https://webawesome.com/docs/components) for status and API documentation.
 
 `test/javascript/web_awesome_coverage_test.rb` compares the explicit import manifest with the installed component directories. `test/controllers/components_controller_test.rb` makes the same comparison against the custom-element tags rendered by the catalogue. A Web Awesome upgrade therefore fails the test suite until every newly installed component is deliberately imported and demonstrated.
 
