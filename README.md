@@ -52,9 +52,10 @@ The application directory itself can be renamed independently. Review `config/da
 
 ## Install and run
 
-Prerequisites are Ruby 4.0.6, PostgreSQL, Node.js, and Yarn 1.x. With rbenv, make sure its shell integration is active so `.ruby-version` is respected.
+Prerequisites are [mise](https://mise.jdx.dev/), PostgreSQL, Node.js, and Yarn 1.x. Install the Ruby version declared in `mise.toml` before setting up the application:
 
 ```sh
+mise install
 bin/setup
 ```
 
@@ -116,7 +117,6 @@ Keep those instructions in the repository after cloning. Add product-specific co
 Run the complete local verification set before committing changes to the starter itself:
 
 ```sh
-eval "$(rbenv init -)"
 bin/rails test
 bin/rubocop
 yarn design:check
