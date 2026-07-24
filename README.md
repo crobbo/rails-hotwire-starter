@@ -4,6 +4,8 @@ A reusable Rails foundation for server-rendered product applications with Hotwir
 
 The starter intentionally provides infrastructure and useful defaults rather than an application kit. It does not prescribe authentication, billing, teams, or product architecture.
 
+Explore the [live component demo](https://rails-starter.christianrobinson.dev/).
+
 ## Stack
 
 - Ruby 4.0.6
