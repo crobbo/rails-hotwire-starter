@@ -21,6 +21,13 @@ class ComponentsControllerTest < ActionDispatch::IntegrationTest
     assert_select "[data-controller='catalogue']", minimum: 5
   end
 
+  test "renders the component catalogue at the root route" do
+    get root_url
+
+    assert_response :success
+    assert_select "h1", "Mulberry & Ink"
+  end
+
   test "renders every component shipped by the pinned Web Awesome package across the catalogue previews" do
     get components_url
     catalogue_markup = response.body

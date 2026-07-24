@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "components" => "components#index", as: :components
   get "components/include-fragment" => "components#include_fragment", as: :components_include_fragment
   get "components/page-preview" => "components#page_preview", as: :components_page_preview
+  root "components#index"
 
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
