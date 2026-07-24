@@ -33,7 +33,8 @@
 # Ignore key files for decrypting credentials and more.
 /config/*.key
 
-# Encrypted Rails credentials are versioned; their decryption keys remain ignored above.
+# After generating credentials in a cloned project, commit credentials.yml.enc.
+# Its decryption key remains ignored above.
 
 
 /app/assets/builds/*
