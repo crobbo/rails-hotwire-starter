@@ -33,8 +33,7 @@
 # Ignore key files for decrypting credentials and more.
 /config/*.key
 
-# Starter clones generate their own encrypted credentials.
-/config/credentials.yml.enc
+# Encrypted Rails credentials are versioned; their decryption keys remain ignored above.
 
 
 /app/assets/builds/*
