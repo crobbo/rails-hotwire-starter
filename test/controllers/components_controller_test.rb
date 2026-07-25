@@ -5,10 +5,8 @@ class ComponentsControllerTest < ActionDispatch::IntegrationTest
     get components_url
 
     assert_response :success
-    assert_select "h1", "Mulberry & Ink"
-    assert_select "wa-dialog[label='Example dialog'] [slot='footer'] wa-button", "Close"
+    assert_select "h1", "Components"
     assert_select "wa-copy-button[tooltip='copy'] wa-button[aria-label='Copy Rails command']", "Copy"
-    assert_select "wa-animated-image[src='/web-awesome-demo.gif']"
     assert_select "wa-scroller .catalogue-scroller__track"
     assert_select "wa-badge[variant='brand']"
     assert_select "wa-badge[appearance='filled-outlined']"
@@ -19,16 +17,20 @@ class ComponentsControllerTest < ActionDispatch::IntegrationTest
     assert_select "[data-action='click->catalogue#showDesktopPage']"
     assert_select "[data-action='click->catalogue#showMobilePage']"
     assert_select "[data-controller='catalogue']", minimum: 5
+    assert_select "section#catalogue-status"
+    assert_select "section#catalogue-forms"
+    assert_select "[data-controller='component-catalogue']", count: 0
+    assert_select "wa-input[label='Search components']", count: 0
   end
 
   test "renders the component catalogue at the root route" do
     get root_url
 
     assert_response :success
-    assert_select "h1", "Mulberry & Ink"
+    assert_select "h1", "Components"
   end
 
-  test "renders every component shipped by the pinned Web Awesome package across the catalogue previews" do
+  test "renders every supported component shipped by the pinned Web Awesome package across the catalogue previews" do
     get components_url
     catalogue_markup = response.body
 
@@ -39,7 +41,9 @@ class ComponentsControllerTest < ActionDispatch::IntegrationTest
     installed_components = component_root.children.select(&:directory?).map(&:basename).map(&:to_s).sort
     rendered_components = [ catalogue_markup, page_preview_markup ].join.scan(/<wa-([a-z0-9-]+)/).flatten.uniq.sort
 
-    assert_equal installed_components, rendered_components
+    unsupported_components = [ "animated-image" ]
+
+    assert_equal installed_components - unsupported_components, rendered_components
   end
 
   test "renders the include component fragment" do

@@ -1,9 +1,9 @@
 <section id="catalogue" class="py-xl lg:py-xxl" aria-labelledby="catalogue-heading">
-  <div class="max-w-3xl">
-    <p class="mb-sm font-label-sm text-label-sm weight-label-sm leading-label-sm tracking-label-sm text-primary">COMPLETE CATALOGUE</p>
-    <h2 id="catalogue-heading" class="font-headline-sm text-headline-sm weight-headline-sm leading-headline-sm tracking-headline-sm text-text">All 66 components, rendered</h2>
+  <div class="catalogue-intro">
+    <p class="mb-sm font-label-sm text-label-sm weight-label-sm leading-label-sm tracking-label-sm text-primary">COMPONENT REFERENCE</p>
+    <h1 id="catalogue-heading" class="font-headline-lg text-headline-lg weight-headline-lg leading-headline-lg tracking-headline-lg text-text">Components</h1>
     <p class="mt-md font-body-md text-body-md weight-body-md leading-body-md text-text-muted">
-      These are the free components installed with Web Awesome 3.10. Rails wrappers are used where they add a useful application API; the remaining primitives are shown directly.
+      Browse 50 examples representing 65 supported Web Awesome components in this starter. Rails wrappers appear where they add a useful application API; the remaining primitives are shown directly.
     </p>
   </div>
 
@@ -13,4 +13,14 @@
   <%= render "catalogue_navigation" %>
   <%= render "catalogue_content" %>
   <%= render "catalogue_utilities" %>
+
+  <footer class="component-catalogue__footer">
+    <div>
+      <p class="font-label-lg text-label-lg weight-label-lg leading-label-lg text-text">65 supported components are represented in 50 examples.</p>
+      <p class="mt-xs font-body-sm text-body-sm weight-body-sm leading-body-sm text-text-muted">All examples are shown above in six categories.</p>
+    </div>
+    <div class="component-catalogue__footer-links">
+      <a href="#catalogue">Back to top</a>
+    </div>
+  </footer>
 </section>

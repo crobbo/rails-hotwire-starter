@@ -1,4 +1,4 @@
-<section class="catalogue-section" aria-labelledby="catalogue-actions-heading">
+<section id="catalogue-actions" class="catalogue-section" aria-labelledby="catalogue-actions-heading">
   <header class="catalogue-section__header">
     <h3 id="catalogue-actions-heading" class="catalogue-section__title">Actions and overlays</h3>
     <p class="catalogue-section__description">Triggers, contextual actions, and top-layer interfaces.</p>
@@ -39,6 +39,32 @@
         <wa-dropdown-item value="duplicate"><wa-icon slot="icon" name="copy"></wa-icon>Duplicate</wa-dropdown-item>
         <wa-dropdown-item value="archive"><wa-icon slot="icon" name="box-archive"></wa-icon>Archive</wa-dropdown-item>
       </wa-dropdown>
+    </article>
+
+    <article class="catalogue-specimen catalogue-specimen--wide">
+      <h4 class="catalogue-specimen__title"><code>UI::MenuComponent</code></h4>
+      <%= render UI::MenuComponent.new do |menu| %>
+        <% menu.with_trigger(appearance: :outlined, with_caret: true) do %>
+          Workspace
+        <% end %>
+        <% menu.with_label do %>Workspace<% end %>
+        <% menu.with_item(label: "Settings", value: "settings", icon_name: "gear", details: "⌘,") %>
+        <% menu.with_item(label: "Manage members", value: "members", icon_name: "users") %>
+        <% menu.with_item(
+          label: "Export",
+          value: "export",
+          icon_name: "file-export",
+          submenu: [
+            {label: "CSV spreadsheet", value: "csv"},
+            {label: "PDF document", value: "pdf"}
+          ]
+        ) %>
+        <% menu.with_divider %>
+        <% menu.with_item(label: "Email notifications", value: "email-notifications", type: :checkbox, checked: true) %>
+        <% menu.with_item(label: "Weekly summary", value: "weekly-summary", type: :checkbox) %>
+        <% menu.with_divider %>
+        <% menu.with_item(label: "Sign out", value: "sign-out", variant: :danger, icon_name: "arrow-right-from-bracket") %>
+      <% end %>
     </article>
 
     <article class="catalogue-specimen">

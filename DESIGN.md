@@ -195,6 +195,8 @@ Web Awesome owns the document reset and base element styles. Tailwind imports it
 
 The component catalogue uses concise examples that demonstrate each primitive's core behavior without duplicating upstream documentation. Full-page primitives are isolated in framed preview routes so responsive drawers and viewport behavior remain authentic without escaping into the catalogue page. API parity comes from using the upstream Web Awesome element directly, not from displaying every option at once.
 
+Component reference pages exist to retrieve and inspect primitives, not to tell the starter's product story. Begin with the reference title, then present the complete inventory in a stable reading order. Keep any product overview or starter-pattern demonstration on a separate surface. Preserve stable category anchors and an explicit return path at the end. Do not preview a primitive with a verified upstream behavior failure; omit it until it is workable and keep preview counts truthful.
+
 - Primary buttons use mulberry and high-contrast text; hover changes tone without changing layout.
 - Inputs are at least 44px tall, with visible labels, muted help text, and a high-contrast focus ring.
 - Dialogs are focused tasks, not general page containers. They own their accessible label, focus trap, Escape behavior, and restoration of focus.
