@@ -54,10 +54,11 @@ The application directory itself can be renamed independently. Review `config/da
 
 ## Install and run
 
-Prerequisites are [mise](https://mise.jdx.dev/), PostgreSQL, Node.js, and Yarn 1.x. Install the Ruby version declared in `mise.toml` before setting up the application:
+Prerequisites are [mise](https://mise.jdx.dev/), Docker, Node.js, and Yarn 1.x. The development PostgreSQL database runs in Docker on host port `55433` (port `5432` inside the container). Install the Ruby version declared in `mise.toml` before setting up the application:
 
 ```sh
 mise install
+docker compose up -d postgres
 bin/setup
 ```
 
@@ -71,6 +72,12 @@ Subsequent development sessions use:
 
 ```sh
 bin/dev
+```
+
+Stop the local database with:
+
+```sh
+docker compose down
 ```
 
 The application defaults to [http://localhost:3000](http://localhost:3000), and the component catalogue is at [http://localhost:3000/components](http://localhost:3000/components).
