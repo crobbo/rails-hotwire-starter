@@ -40,9 +40,9 @@ ViewComponent wrappers should express the Rails application's API, not conceal W
 
 `app/javascript/lib/web_awesome.js` explicitly imports all 66 free components in the version-locked Web Awesome package. Explicit imports let esbuild produce a reliable Rails asset; Web Awesome's lazy loader expects separately hosted component modules that this starter does not publish. The coverage test keeps the manifest synchronized with package upgrades.
 
-After a wrapper exists for an application primitive, prefer that wrapper outside this preview. Use the remaining `wa-*` elements directly until a Rails-specific API would genuinely improve them. Applications with a strict bundle budget can prune the import manifest after cloning the starter.
+Every Web Awesome primitive has a `UI` ViewComponent wrapper, so use the matching wrapper outside this preview. The preview may use direct `wa-*` markup to make the upstream API easy to inspect. Applications with a strict bundle budget can prune the import manifest after cloning the starter.
 
-See `docs/component-coverage.md` for the installed catalogue, availability guarantee, wrapper policy, and recommended wrapper rollout order.
+See `docs/component-coverage.md` for the installed catalogue, availability guarantee, and wrapper policy.
 
 ### Starter components
 

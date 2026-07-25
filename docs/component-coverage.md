@@ -6,26 +6,14 @@ The version-locked Web Awesome 3.10 package contains 66 free components. The sta
 
 ## Wrapper policy
 
-Create a `UI` ViewComponent wrapper when it adds Rails value: form naming and errors, typed options, ordered slots, accessible defaults, Turbo links, or Stimulus coordination. Keep the wrapper thin and preserve Web Awesome events, slots, CSS parts, custom properties, and arbitrary HTML attributes.
+Every Web Awesome component has a `UI` ViewComponent wrapper. The baseline wrappers are intentionally thin: they preserve Web Awesome events, slots, CSS parts, custom properties, content, and arbitrary HTML attributes. Richer wrappers add Rails value where appropriate, such as typed options, accessible defaults, ordered slots, form integration, Turbo links, or Stimulus coordination.
 
-Use a Web Awesome custom element directly when a wrapper would only rename its attributes. This applies especially to formatters, observers, low-level positioning helpers, and unusual media components. No additional JavaScript import is needed because every free component is registered by the starter.
+Use the corresponding `UI` wrapper in application code. The `/components` catalogue may render underlying `wa-*` markup directly so it remains a compact reference for the upstream API.
 
 This baseline deliberately favors immediate availability over the smallest possible JavaScript bundle. An application with a strict bundle budget can remove unused entries from `app/javascript/lib/web_awesome.js`; update or remove the coverage test at the same time so that choice stays explicit.
 
 ## Rails wrapper coverage
 
-- Actions: button; dropdown with labels, items, icons, shortcut details, dividers, checkboxes, danger variants, and submenus.
-- Forms: input, textarea, select and option, checkbox, and switch.
-- Layout: dialog and divider.
-- Media: icon.
-- Rails compositions: responsive navbar.
+The wrapper test verifies that every installed Web Awesome component renders through its matching `UI` ViewComponent. Application-oriented wrappers for buttons, menus, form controls, dialogs, dividers, icons, and navigation add a richer Rails API on top of the thin baseline.
 
-## Recommended wrapper rollout
-
-1. Forms: checkbox group, radio and radio group, number input, slider, color picker, and rating.
-2. Application structure: drawer, details, accordion, tabs, breadcrumbs, tooltip, callout, badge, tag, and card.
-3. Rich interaction: popover, tree, scroller, split panel, carousel, comparison, progress, and skeleton states.
-4. Opt-in components: page scaffolding, markdown, QR code, zoomable frame, known date, and time input.
-5. Direct-use helpers by default: formatters, relative time, observers, popup, include, animation, and random content.
-
-Experimental components should be isolated behind wrappers only when an application needs them. Record their status in the wrapper documentation and expect API changes during Web Awesome upgrades.
+Experimental components are wrapped too, but their upstream APIs may change during Web Awesome upgrades.

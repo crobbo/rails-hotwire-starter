@@ -11,4 +11,16 @@ class WebAwesomeCoverageTest < ActiveSupport::TestCase
     assert_equal installed_components, imported_components,
       "Update app/javascript/lib/web_awesome.js when the pinned Web Awesome catalogue changes"
   end
+
+  test "provides a UI ViewComponent wrapper for every installed component" do
+    component_root = Rails.root.join("node_modules/@awesome.me/webawesome/dist/components")
+
+    component_root.children.select(&:directory?).each do |component_directory|
+      component_name = component_directory.basename.to_s
+      wrapper_name = "UI::#{component_name.tr("-", "_").camelize}Component"
+
+      assert wrapper_name.constantize < ApplicationComponent,
+        "Add #{wrapper_name} when the pinned Web Awesome catalogue changes"
+    end
+  end
 end

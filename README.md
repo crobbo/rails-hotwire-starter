@@ -111,9 +111,9 @@ Use Tailwind for page layout, responsive composition, spacing, and application-s
 
 The starter bundles every component from Web Awesome 3.10 through esbuild. The dependency version is locked in `package.json` and `yarn.lock`, while `app/javascript/lib/web_awesome.js` is the explicit component import manifest. This favors immediate availability over the smallest possible bundle. Product applications can remove unused component imports when bundle size matters.
 
-Create a `UI` ViewComponent wrapper when it adds Rails value—form naming, validation, typed options, ordered slots, Turbo links, accessible defaults, or Stimulus coordination. Avoid wrappers that merely rename Web Awesome attributes.
+Every Web Awesome primitive has a `UI` ViewComponent wrapper. Keep baseline wrappers thin and enrich them only when Rails value is clear—form naming, validation, typed options, ordered slots, Turbo links, accessible defaults, or Stimulus coordination.
 
-See [`docs/component-coverage.md`](docs/component-coverage.md) for the coverage guarantee, wrapper policy, and suggested rollout order.
+See [`docs/component-coverage.md`](docs/component-coverage.md) for the coverage guarantee and wrapper policy.
 
 ## Coding-agent guidance
 
