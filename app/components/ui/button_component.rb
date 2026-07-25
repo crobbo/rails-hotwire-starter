@@ -14,6 +14,7 @@ module UI
       disabled: false,
       loading: false,
       pill: false,
+      with_start: false,
       with_caret: false,
       **html_attributes
     )
@@ -25,6 +26,7 @@ module UI
       @disabled = disabled
       @loading = loading
       @pill = pill
+      @with_start = with_start
       @with_caret = with_caret
       @html_attributes = html_attributes
 
@@ -46,6 +48,7 @@ module UI
         attributes[:disabled] = true if @disabled
         attributes[:loading] = true if @loading
         attributes[:pill] = true if @pill
+        attributes["with-start"] = true if @with_start
         attributes["with-caret"] = true if @with_caret
       end
     end

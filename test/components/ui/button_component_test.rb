@@ -7,10 +7,11 @@ class UI::ButtonComponentTest < ViewComponent::TestCase
       appearance: :accent,
       size: :large,
       type: :submit,
+      with_start: true,
       data: { action: "click->form#submit" }
     )) { "Save" }
 
-    assert_selector "wa-button[variant='brand'][appearance='accent'][size='l'][type='submit'][data-action='click->form#submit']", text: "Save"
+    assert_selector "wa-button[variant='brand'][appearance='accent'][size='l'][type='submit'][with-start][data-action='click->form#submit']", text: "Save"
   end
 
   test "renders links without a button type" do

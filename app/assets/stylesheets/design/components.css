@@ -85,6 +85,15 @@
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
+    margin-inline-start: auto;
+  }
+
+  .catalogue-github-button::part(start) {
+    align-items: center;
+  }
+
+  .catalogue-github-button::part(label) {
+    transform: translateY(1px);
   }
 
   .ui-menu::part(menu) {

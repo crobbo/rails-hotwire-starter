@@ -5,7 +5,20 @@
     <% navbar.with_brand do %>
       <%= link_to "Rails Starter", components_path %>
     <% end %>
-    <% navbar.with_link(label: "Component reference", href: "#catalogue") %>
+    <% navbar.with_actions do %>
+      <%= render UI::ButtonComponent.new(
+        href: "https://github.com/crobbo/rails-hotwire-starter",
+        appearance: :outlined,
+        size: :s,
+        with_start: true,
+        class: "catalogue-github-button",
+        target: "_blank",
+        rel: "noopener noreferrer"
+      ) do %>
+        <%= render UI::IconComponent.new(name: "github", family: "brands", slot: "start") %>
+        GitHub
+      <% end %>
+    <% end %>
   <% end %>
 
   <%= render "catalogue" %>
