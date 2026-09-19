@@ -6,9 +6,8 @@ class ComponentsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
     assert_select "h1", "Components"
-    assert_select "wa-button[href='https://github.com/crobbo/rails-hotwire-starter'][with-start][target='_blank'][rel='noopener noreferrer']" do
+    assert_select "wa-button[href='https://github.com/crobbo/rails-hotwire-starter'][with-start][target='_blank'][rel='noopener noreferrer']", text: "GitHub" do
       assert_select "wa-icon[slot='start'][name='github'][family='brands']"
-      assert_select ".", "GitHub"
     end
     assert_select "wa-copy-button[tooltip='copy'] wa-button[aria-label='Copy Rails command']", "Copy"
     assert_select "wa-scroller .catalogue-scroller__track"

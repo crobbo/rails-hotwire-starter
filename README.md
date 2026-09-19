@@ -9,16 +9,17 @@ Explore the [live component demo](https://rails-starter.christianrobinson.dev/).
 ## Stack
 
 - Ruby 4.0.6
+- Node.js 24 LTS and Yarn 1.22.22
 - Rails from the `main` branch, locked to a known commit
 - PostgreSQL and Propshaft
 - Turbo and Stimulus
 - esbuild for JavaScript
 - Tailwind CSS 4 for layout and composition
-- Web Awesome 3.10 for accessible browser-native components
+- Web Awesome 3.12 for accessible browser-native components
 - ViewComponent for thin Rails-facing component APIs
 - Google's `design.md` format as the design source of truth
 
-All 66 components included in the version-locked Web Awesome 3.10 package are registered and demonstrated at `/components`.
+All 70 components included in the version-locked Web Awesome 3.12 package are registered and wrapped. The catalogue at `/components` demonstrates 69 supported components across 53 examples; `animated-image` is excluded from the preview because of an upstream rendering issue.
 
 ## Start a project
 
@@ -54,15 +55,16 @@ The application directory itself can be renamed independently. Review `config/da
 
 ## Install and run
 
-Prerequisites are [mise](https://mise.jdx.dev/), Docker, Node.js, and Yarn 1.x. The development PostgreSQL database runs in Docker on host port `55433` (port `5432` inside the container). Install the Ruby version declared in `mise.toml` before setting up the application:
+Prerequisites are [mise](https://mise.jdx.dev/) and Docker. The development PostgreSQL database runs in Docker on host port `55433` (port `5432` inside the container). Install the Ruby and Node.js versions declared in `mise.toml`, then install the pinned Yarn version before setting up the application:
 
 ```sh
 mise install
+mise exec -- npm install --global yarn@1.22.22
 docker compose up -d postgres
 bin/setup
 ```
 
-`bin/setup` installs Ruby and JavaScript dependencies, prepares the databases, clears temporary files, and starts the development processes. To prepare without starting the server:
+`bin/setup` installs Ruby and JavaScript dependencies, prepares the databases, clears temporary files, and starts the development processes. JavaScript installs use Yarn with the frozen lockfile, including Rails asset preparation and CI. To prepare without starting the server:
 
 ```sh
 bin/setup --skip-server
@@ -109,7 +111,7 @@ See [`docs/design-system.md`](docs/design-system.md) for the complete workflow a
 
 Use Tailwind for page layout, responsive composition, spacing, and application-specific presentation. Use Web Awesome for interaction-rich primitives such as dialogs, menus, dropdowns, form controls, tooltips, tabs, drawers, and disclosures.
 
-The starter bundles every component from Web Awesome 3.10 through esbuild. The dependency version is locked in `package.json` and `yarn.lock`, while `app/javascript/lib/web_awesome.js` is the explicit component import manifest. This favors immediate availability over the smallest possible bundle. Product applications can remove unused component imports when bundle size matters.
+The starter bundles every component from Web Awesome 3.12 through esbuild. The dependency version is locked in `package.json` and `yarn.lock`, while `app/javascript/lib/web_awesome.js` is the explicit component import manifest. This favors immediate availability over the smallest possible bundle. Product applications can remove unused component imports when bundle size matters.
 
 Every Web Awesome primitive has a `UI` ViewComponent wrapper. Keep baseline wrappers thin and enrich them only when Rails value is clear—form naming, validation, typed options, ordered slots, Turbo links, accessible defaults, or Stimulus coordination.
 
@@ -128,6 +130,9 @@ Run the complete local verification set before committing changes to the starter
 ```sh
 bin/rails test
 bin/rubocop
+bin/bundler-audit
+bin/brakeman --no-pager
+yarn audit
 yarn design:check
 yarn build
 yarn build:css
@@ -141,4 +146,6 @@ Rails follows `main`, while the lockfile keeps clones reproducible. Advance it d
 
 The Google `design.md` package and Web Awesome are locked to exact dependency versions. Upgrade them independently, read their release notes, regenerate assets, confirm component coverage, and browser-test the catalogue before committing lockfile changes.
 
-The temporary Rails-main compatibility shim for ViewComponent is documented in [`docs/design-system.md`](docs/design-system.md). Remove it once the released ViewComponent version supports the current Rails API directly.
+Dependabot checks gems, JavaScript packages, and GitHub Actions weekly. CI checks design tokens, asset builds, dependency audits, Ruby style, and Rails tests using the pinned Node.js LTS version.
+
+Solid Queue 1.7 adds batch tables. New queue databases include them in `db/queue_schema.rb`; existing deployments should run `RAILS_ENV=production bin/rails db:migrate:queue` with their usual database configuration before starting the updated workers. The migration in `db/queue_migrate` preserves existing jobs. ViewComponent 4.15 supports the current Rails API directly, so the earlier compatibility initializer has been removed.

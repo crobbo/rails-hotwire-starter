@@ -3,6 +3,8 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = [
     "tagStatus",
+    "toast",
+    "toastTemplate",
     "animation",
     "animationName",
     "animationStatus",
@@ -28,6 +30,10 @@ export default class extends Controller {
   removeTag(event) {
     event.currentTarget.remove()
     this.tagStatusTarget.textContent = "Rails tag removed."
+  }
+
+  showToast() {
+    this.toastTarget.append(this.toastTemplateTarget.content.cloneNode(true))
   }
 
   playAnimation() {

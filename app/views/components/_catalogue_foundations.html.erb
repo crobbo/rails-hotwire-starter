@@ -5,6 +5,15 @@
   </header>
 
   <div class="catalogue-grid">
+    <article class="catalogue-specimen" data-controller="catalogue">
+      <h4 class="catalogue-specimen__title"><code>wa-toast</code> and <code>wa-toast-item</code></h4>
+      <wa-button data-action="click->catalogue#showToast">Show notification</wa-button>
+      <wa-toast placement="top-end" data-catalogue-target="toast"></wa-toast>
+      <template data-catalogue-target="toastTemplate">
+        <wa-toast-item variant="success" duration="5000">Changes saved.</wa-toast-item>
+      </template>
+    </article>
+
     <article class="catalogue-specimen">
       <h4 class="catalogue-specimen__title"><code>wa-avatar</code></h4>
       <div class="catalogue-row">

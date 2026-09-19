@@ -13,12 +13,12 @@ class UI::WebAwesomeWrappersTest < ViewComponent::TestCase
     RadioGroup: "radio-group", RandomContent: "random-content", Rating: "rating", RelativeTime: "relative-time",
     ResizeObserver: "resize-observer", Scroller: "scroller", Skeleton: "skeleton", Slider: "slider", Spinner: "spinner",
     SplitPanel: "split-panel", Tab: "tab", TabGroup: "tab-group", TabPanel: "tab-panel", Tag: "tag", TimeInput: "time-input",
-    Tooltip: "tooltip", Tree: "tree", TreeItem: "tree-item", ZoomableFrame: "zoomable-frame"
+    Toast: "toast", ToastItem: "toast-item", Tooltip: "tooltip", Tree: "tree", TreeItem: "tree-item", ZoomableFrame: "zoomable-frame"
   }.freeze
 
   test "renders every thin Web Awesome wrapper with content and HTML attributes" do
     WRAPPERS.each do |name, tag|
-      render_inline("UI::#{name}Component".constantize.new(data: {controller: "example"})) { "Example" }
+      render_inline("UI::#{name}Component".constantize.new(data: { controller: "example" })) { "Example" }
 
       assert_selector "wa-#{tag}[data-controller='example']", text: "Example"
     end

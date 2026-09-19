@@ -18,7 +18,7 @@ yarn design:check
 
 Run `yarn build` and `yarn build:css` after adding JavaScript or styles. `build:css` bundles Web Awesome's full stylesheet—including its required utilities and modal scroll lock—into `webawesome.css`, then builds the Tailwind application stylesheet. The generated design-token CSS is committed so a fresh clone can boot without requiring token generation first.
 
-Tailwind Preflight resets padding on every element, including custom-element hosts. `components.css` uses `padding: revert-layer` on `wa-dropdown-item` and `wa-option` so Web Awesome's shadow-DOM host spacing remains authoritative. Keep those compatibility rules unless a future Tailwind or Web Awesome release changes the cascade behavior.
+Tailwind Preflight is disabled. Web Awesome owns the document reset and native component spacing; Tailwind provides the theme and composition utilities.
 
 `UI::DialogComponent` keeps the custom-element host out of normal layout flow. Web Awesome changes that host to `display: block` while open; positioning the otherwise invisible host prevents it from becoming a new flex or grid item and moving the trigger.
 
@@ -38,7 +38,7 @@ Use Tailwind for page layout, responsive behavior, spacing, and application-spec
 
 ViewComponent wrappers should express the Rails application's API, not conceal Web Awesome. Preserve documented slots, events, CSS parts, accessibility behavior, and useful custom properties. Stimulus coordinates application behavior such as opening a dialog after a Turbo response; it should not rebuild focus trapping, keyboard navigation, positioning, or dismissal.
 
-`app/javascript/lib/web_awesome.js` explicitly imports all 66 free components in the version-locked Web Awesome package. Explicit imports let esbuild produce a reliable Rails asset; Web Awesome's lazy loader expects separately hosted component modules that this starter does not publish. The coverage test keeps the manifest synchronized with package upgrades.
+`app/javascript/lib/web_awesome.js` explicitly imports all 70 free components in Web Awesome 3.12. Explicit imports let esbuild produce a reliable Rails asset; Web Awesome's lazy loader expects separately hosted component modules that this starter does not publish. The coverage test keeps the manifest synchronized with package upgrades.
 
 Every Web Awesome primitive has a `UI` ViewComponent wrapper, so use the matching wrapper outside this preview. The preview may use direct `wa-*` markup to make the upstream API easy to inspect. Applications with a strict bundle budget can prune the import manifest after cloning the starter.
 
@@ -131,4 +131,4 @@ Wrapper options deliberately use Web Awesome's names (`variant`, `appearance`, `
 
 The Google `design.md` format is currently alpha, and both it and Web Awesome are locked to exact dependency versions. Upgrade each deliberately, read its release notes, regenerate the theme, build assets, and browser-test the preview before committing the lockfile changes.
 
-Rails tracks `main`, which currently removed `ActionView::Template.template_handler_extensions` before ViewComponent 4.12 adopted its replacement. `config/initializers/view_component_rails_main.rb` provides a narrow, feature-detected compatibility alias. Remove it once ViewComponent uses `ActionView::Template::Handlers.extensions`.
+Rails tracks `main`. ViewComponent 4.15 uses the supported `ActionView::Template::Handlers.extensions` API, so no compatibility initializer is needed.

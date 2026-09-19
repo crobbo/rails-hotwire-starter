@@ -2,6 +2,10 @@
 
 CI.run do
   step "Setup", "bin/setup --skip-server"
+  step "Design: Tokens", "yarn design:check"
+  step "Build: JavaScript", "yarn build"
+  step "Build: CSS", "yarn build:css"
+  step "Setup: Test database", "env RAILS_ENV=test bin/rails db:prepare"
 
   group "Checks", parallel: 2 do
     step "Style: Ruby", "bin/rubocop"

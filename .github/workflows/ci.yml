@@ -27,6 +27,28 @@ jobs:
       - name: Scan for known security vulnerabilities in gems used
         run: bin/bundler-audit
 
+  frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Set up JavaScript
+        uses: ./.github/actions/setup-javascript
+
+      - name: Check design tokens
+        run: yarn design:check
+
+      - name: Build JavaScript
+        run: yarn build
+
+      - name: Build CSS
+        run: yarn build:css
+
+      - name: Scan JavaScript dependencies for vulnerabilities
+        run: yarn audit
+
   lint:
     runs-on: ubuntu-latest
     env:
@@ -55,10 +77,12 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    env:
+      SKIP_YARN_INSTALL: "1"
 
     services:
       postgres:
-        image: postgres
+        image: postgres:17
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
@@ -74,7 +98,7 @@ jobs:
 
     steps:
       - name: Install packages
-        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y libpq-dev node-gyp
+        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y libpq-dev libvips-dev node-gyp
 
       - name: Checkout code
         uses: actions/checkout@v7
@@ -83,6 +107,9 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+
+      - name: Set up JavaScript
+        uses: ./.github/actions/setup-javascript
 
       - name: Run tests
         env:
@@ -94,10 +121,12 @@ jobs:
 
   system-test:
     runs-on: ubuntu-latest
+    env:
+      SKIP_YARN_INSTALL: "1"
 
     services:
       postgres:
-        image: postgres
+        image: postgres:17
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
@@ -113,7 +142,7 @@ jobs:
 
     steps:
       - name: Install packages
-        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y libpq-dev node-gyp
+        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y libpq-dev libvips-dev node-gyp
 
       - name: Checkout code
         uses: actions/checkout@v7
@@ -122,6 +151,9 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+
+      - name: Set up JavaScript
+        uses: ./.github/actions/setup-javascript
 
       - name: Run System Tests
         env:
