@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@awesome.me/webawesome@3.12.0":
-  version "3.12.0"
-  resolved "https://registry.yarnpkg.com/@awesome.me/webawesome/-/webawesome-3.12.0.tgz#e20df97565803ac4b3e80ecba1a47bd541627633"
-  integrity sha512-cO/vSvlyZqiki1upynxpk9q2N48U2+nflIj40OtCKYOs6ZXa4zXhW6+asXKOfeNw1AnD4nzsSIdZSt/Ti9QONA==
+"@awesome.me/webawesome@3.15.0":
+  version "3.15.0"
+  resolved "https://registry.yarnpkg.com/@awesome.me/webawesome/-/webawesome-3.15.0.tgz#8e659ad681634fc5b16125ab99f8c0192ae6c021"
+  integrity sha512-r2RWOu/QAaTShbTy3QfpOw+j2Mc7z+iY/PA1rBbsmrWOm2DMv7K2wNYe4IXt6TgTswkrKuQM19RCGC5FJh7GFg==
   dependencies:
     "@ctrl/tinycolor" "4.1.0"
     "@floating-ui/dom" "^1.6.13"
@@ -19,6 +19,7 @@
     composed-offset-position "^0.0.6"
     lit "^3.2.1"
     marked "^11.2.0"
+    microlighter "^2.2.0"
     nanoid "^5.1.5"
 
 "@ctrl/tinycolor@4.1.0":
@@ -1106,6 +1107,11 @@ mdast-util-to-string@^4.0.0:
   integrity sha512-0H44vDimn51F0YwvxSJSm0eCDOJTRlmN0R1yBh4HLj9wiV1Dn0QoXGbvFAWj2hSItVTlCmBF1hqKlIyUBVFLPg==
   dependencies:
     "@types/mdast" "^4.0.0"
+
+microlighter@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/microlighter/-/microlighter-2.2.0.tgz#c40f99cd420c26bb39bb5797c2e4e90e2f3b73c2"
+  integrity sha512-XFUHmKclX4taKWVpYkqJ/GlfUS27FzQTCph1u3v9OwkmQJGXry3Pk1e7SivLz6xGOCxRVyi3DSrztF3e460jrg==
 
 micromark-core-commonmark@^2.0.0:
   version "2.0.3"
